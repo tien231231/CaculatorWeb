@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <h1 id="heading">Calculator</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="number" name="number_one" class="numbers" placeholder="Nhập số thứ nhất..." required>
+            <label>Choose an operator: </label>
+            <select name="operator" id="option">
+                <option value="+">+ (Cộng)</option>
+                <option value="-">- (Trừ)</option>
+                <option value="*">* (Nhân)</option>
+                <option value="/">/ (Chia)</option>
+            </select>
+            <input type="number" name="number_two" class="numbers" placeholder="Nhập số thứ hai..." required>
+            <input type="submit" id="button" value="=">
+        </form>
+        <div class="result">
+            <h1 id="result">{{ result }}</h1>
+        </div>
+    </div>
+{% endblock %}
